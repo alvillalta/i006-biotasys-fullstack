@@ -17,17 +17,19 @@ COPY . .
 CMD ["npm", "run", "start:dev"]
 
 # --- Production stage ---
-FROM node:18-alpine AS production
+FROM node:20-alpine AS production
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci --only=production
+RUN npm ci
 
 COPY . .
 
 RUN npm run build
+
+RUN npm prune --omit=dev
 
 EXPOSE 3000
 
