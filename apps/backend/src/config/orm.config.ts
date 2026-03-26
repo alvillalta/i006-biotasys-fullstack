@@ -20,7 +20,7 @@ export const ormConfig: TypeOrmModuleOptions & DataSourceOptions = {
   migrationsTableName: 'typeorm_migrations',
 
   // Sincronización y logging
-  synchronize: config.nodeEnv === 'development', // Solo en desarrollo
+  synchronize: config.nodeEnv === 'development' || process.env.DB_SYNCHRONIZE === 'true',
   logging: config.db.logQueries ? ['query', 'error'] : ['error'],
 
   // Pool de conexiones
