@@ -31,7 +31,7 @@ export const ormConfig: TypeOrmModuleOptions & DataSourceOptions = {
   migrationsRun: config.db.migrateData,
 
   // Opciones adicionales
-  ssl: config.nodeEnv === 'production',
+  ssl: config.nodeEnv === 'production' ? { rejectUnauthorized: false } : false,
   dropSchema: process.env.DROP_SCHEMA === 'true', // Limpiar BD en inicio
   retryAttempts: 5,
   retryDelay: 3000,
