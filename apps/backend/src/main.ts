@@ -18,7 +18,7 @@ async function bootstrap() {
 
   // Configurar CORS
   app.enableCors({
-    origin: ['http://localhost:3001', 'http://localhost:3000', "http://localhost:5173"],
+    origin: ['http://localhost:3001', 'http://localhost:3000', "http://localhost:5173", 'https://biotasys-frontend.onrender.com'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
